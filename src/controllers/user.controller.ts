@@ -33,10 +33,10 @@ const {
 
 export default class UserController {
     async createUser(req: Request, res: Response) {
-        const {email} = req.body;
+        const {employeeId} = req.body;
 
-        //checks if another user with email exists
-        if (await findByEmail(email)) {
+        //checks if another user with id exists
+        if (await findByEmail(employeeId)) {
             //sends an error if the email exists
             return res.status(409)
             .send({
@@ -44,7 +44,7 @@ export default class UserController {
                 message: DUPLICATE_EMAIL
             });
         }
-        //creates a user if the email doesn't exist
+        //creates a user if the id doesn't exist
         const createdUser = await createUser(req.body);
         const token = generateAuthToken(createdUser as any);
         res.cookie("token", token, {

@@ -3,8 +3,8 @@ import User from "../models/user.model";
 
 export default class UserService {
 
-    async findByEmail(email: string) {
-        return await User.findOne({ email: email, isDeleted: false }, "-__v -password");
+    async findByEmail(id: string) {
+        return await User.findOne({ employeeId: id, isDeleted: false }, "-__v -password");
     }
 
     async createUser(user: Partial<IUser>) {
