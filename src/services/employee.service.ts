@@ -4,7 +4,7 @@ import Employee from "../models/employee.model";
 export default class EmployeeService {
 
     async findByEmail(email: string) {
-        return await Employee.findOne({ email: email, isDeleted: false }, "-__v -password");
+        return await Employee.findOne({ companyEmail: email, isDeleted: false }, "-__v -password");
     }
 
     async createEmployee(employee: Partial<IEmployee>) {
