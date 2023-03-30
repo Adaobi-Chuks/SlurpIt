@@ -12,4 +12,8 @@ export default class EmployeeService {
         return await Employee.findOne({ _id: _employee.id}, "-__v -password");
     }
 
+    async findById(id: string) {
+        return await Employee.findOne({ _id: id, isDeleted: false }, "-__v -password");
+    }
+
 }

@@ -18,18 +18,32 @@ const MESSAGES = {
     },
     EMPLOYEE: {
         DUPLICATE_EMAIL: "Email already exist.",
-        DUPLICATE_USERNAME: "UserName already exist.",
         CREATED: "Employee created successfully.",
-        INVALID_USERNAME: "UserName does not exist.",
-        INVALID_PASSWORD: "Incorrect password.",
-        INVALID_ID: "User ID does not exist.",
-        NOT_ID: "User ID is not a valid ID.",
-        UPDATED: "User updated successfully.",
-        FETCHED: "User fetched successfully",
-        FETCHEDALL: "All available users fetched successfully",
-        DELETED: "User deleted successfully",
-        LOGGEDIN: "Successfully logged in",
-        LOGGEDOUT: "Successfully logged out"
+        NOT_ID: "Employee ID is not a valid ID.",
+        FETCHED: "Employee fetched successfully",
+        INVALID_ID: "Employee ID does not exist.",
+        // INVALID_USERNAME: "UserName does not exist.",
+        // INVALID_PASSWORD: "Incorrect password.",
+        // UPDATED: "User updated successfully.",
+        // FETCHEDALL: "All available users fetched successfully",
+        // DELETED: "User deleted successfully",
+        // LOGGEDIN: "Successfully logged in",
+        // LOGGEDOUT: "Successfully logged out"
+    },
+    USER: {
+        DUPLICATE_EMAIL: "Email already exist.",
+        CREATED: "User created successfully.",
+        // DUPLICATE_USERNAME: "UserName already exist.",
+        // INVALID_USERNAME: "UserName does not exist.",
+        // INVALID_PASSWORD: "Incorrect password.",
+        // INVALID_ID: "User ID does not exist.",
+        // NOT_ID: "User ID is not a valid ID.",
+        // UPDATED: "User updated successfully.",
+        // FETCHED: "User fetched successfully",
+        // FETCHEDALL: "All available users fetched successfully",
+        // DELETED: "User deleted successfully",
+        // LOGGEDIN: "Successfully logged in",
+        // LOGGEDOUT: "Successfully logged out"
     },
 };
 

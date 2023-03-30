@@ -1,13 +1,18 @@
 import { Request, Response } from "express";
 import { MAXAGE, MESSAGES } from "../configs/constants.config";
 import EmployeeService from "../services/employee.service";
+import isObjectId from "../utils/isValidObjectId.util";
 const {
     findByEmail,
-    createEmployee
+    createEmployee,
+    findById
 } = new EmployeeService();
 const {
     DUPLICATE_EMAIL,
-    CREATED
+    CREATED,
+    NOT_ID,
+    INVALID_ID,
+    FETCHED
 } = MESSAGES.EMPLOYEE;
 
 export default class EmployeeController {
@@ -32,5 +37,30 @@ export default class EmployeeController {
                 message: CREATED,
                 createdEmployee: createdEmployee
             });
+    }
+
+    async getEmployeeById(req: Request, res: Response) {
+        //checks if the Id passed in is a valid Id
+        if(!isObjectId(req.params.employeeId)){
+            return res.status(404).send({
+                success: false,
+                message: NOT_ID
+            });
+        }
+
+        //checks if employee exists
+        const employee = await findById(req.params.employeeId);
+    
+        if (!employee) {
+            return res.status(404).send({
+                success: false,
+                message: INVALID_ID
+            });
+        }
+        return res.status(200).send({
+          success: true,
+          message: FETCHED,
+          returnedUser: employee
+        });
     }
 }
