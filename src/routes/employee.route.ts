@@ -7,5 +7,5 @@ const {
     createEmployee
 } = new EmployeeController();
 
-//create a user or signup
+//create an employee
 router.post("/", createEmployee);
