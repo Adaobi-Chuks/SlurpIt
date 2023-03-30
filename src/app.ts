@@ -4,7 +4,7 @@ dotenv.config();
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import database from "./configs/database.config";
-// import rootRoute from "./routes/index.route";
+import rootRoute from "./routes/index.route";
 import {PORT} from "./configs/constants.config";
 // import asyncExpressError from "express-async-error";
 
@@ -21,7 +21,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.use("/api/v1", rootRoute);
+app.use("/api/v1", rootRoute);
 
 app.listen(PORT, () => {
     database();

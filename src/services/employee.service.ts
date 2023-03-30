@@ -7,8 +7,8 @@ export default class EmployeeService {
         return await Employee.findOne({ email: email, isDeleted: false }, "-__v -password");
     }
 
-    async createEmployee(user: Partial<IEmployee>) {
-        const _employee = await Employee.create(user);
+    async createEmployee(employee: Partial<IEmployee>) {
+        const _employee = await Employee.create(employee);
         return await Employee.findOne({ _id: _employee.id}, "-__v -password");
     }
 

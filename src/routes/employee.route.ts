@@ -9,3 +9,5 @@ const {
 
 //create an employee
 router.post("/", createEmployee);
+
+export default router;
