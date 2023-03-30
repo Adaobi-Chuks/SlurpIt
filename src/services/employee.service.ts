@@ -16,4 +16,11 @@ export default class EmployeeService {
         return await Employee.findOne({ _id: id, isDeleted: false }, "-__v -password");
     }
 
+    async getAllEmployees() {
+        let filter: any = {};
+        filter.isDeleted = false;
+        //sorts in descending order based on the date created
+        return await Employee.find(filter, "-__v -password").sort({ createdAt: 'desc' });
+    }
+
 }
