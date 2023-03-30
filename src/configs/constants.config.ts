@@ -22,10 +22,10 @@ const MESSAGES = {
         NOT_ID: "Employee ID is not a valid ID.",
         FETCHED: "Employee fetched successfully",
         INVALID_ID: "Employee ID does not exist.",
+        FETCHEDALL: "All available Employees fetched successfully",
         // INVALID_USERNAME: "UserName does not exist.",
         // INVALID_PASSWORD: "Incorrect password.",
         // UPDATED: "User updated successfully.",
-        // FETCHEDALL: "All available users fetched successfully",
         // DELETED: "User deleted successfully",
         // LOGGEDIN: "Successfully logged in",
         // LOGGEDOUT: "Successfully logged out"

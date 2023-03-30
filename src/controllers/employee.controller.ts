@@ -5,14 +5,16 @@ import isObjectId from "../utils/isValidObjectId.util";
 const {
     findByEmail,
     createEmployee,
-    findById
+    findById,
+    getAllEmployees
 } = new EmployeeService();
 const {
     DUPLICATE_EMAIL,
     CREATED,
     NOT_ID,
     INVALID_ID,
-    FETCHED
+    FETCHED,
+    FETCHEDALL
 } = MESSAGES.EMPLOYEE;
 
 export default class EmployeeController {
@@ -63,6 +65,15 @@ export default class EmployeeController {
           success: true,
           message: FETCHED,
           returnedUser: employee
+        });
+    }
+
+    async getEmployees(req: Request, res: Response) {
+        const employees = await getAllEmployees();
+        return res.status(200).send({
+          success: true,
+          message: FETCHEDALL,
+          returnedEmployees: employees
         });
     }
 }
