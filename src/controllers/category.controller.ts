@@ -29,12 +29,12 @@ export default class CategoryController {
                 });
         }
         //create a category if the name doesn't exist
-        const createdRoomType = await addCategory(data);
+        const createdCategory = await addCategory(data);
         return res.status(201)
             .send({
                 message: CREATED,
                 success: true,
-                data: createdRoomType
+                data: createdCategory
             });
     }
 }
