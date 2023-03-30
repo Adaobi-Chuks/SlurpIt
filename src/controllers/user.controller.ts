@@ -10,6 +10,7 @@ const {
     createUser,
     findById,
     getAllUsers,
+    findByIdP,
     // findByUserName,
     // findByUserNameWithP,
     // editById,
@@ -95,7 +96,14 @@ export default class UserController {
 
     async login(req: Request, res: Response) {
         const {employeeId, password} = req.body;
-        const _user = await findById(employeeId);
+        //checks if the Id passed in is a valid Id
+        if(!isObjectId(employeeId)){
+            return res.status(404).send({
+                success: false,
+                message: NOT_ID
+            });
+        }
+        const _user = await findByIdP(employeeId);
         if (!_user) {
             return res.status(400)
                 .send({ 
@@ -103,7 +111,7 @@ export default class UserController {
                     message: MESSAGES.EMPLOYEE.INVALID_ID
                 });
         }
-        
+
         const validPassword = await bcrypt.compare(password, _user.password);
         if (!validPassword) {
             return res.status(400)

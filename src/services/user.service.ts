@@ -13,7 +13,11 @@ export default class UserService {
     }
 
     async findById(id: string) {
-        return await User.findOne({ _id: id, isDeleted: false }, "-__v -password");
+        return await User.findOne({ employeeId: id, isDeleted: false }, "-__v -password");
+    }
+
+    async findByIdP(id: string) {
+        return await User.findOne({ employeeId: id, isDeleted: false }, "-__v");
     }
 
     async getAllUsers() {
