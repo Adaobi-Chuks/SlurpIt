@@ -24,8 +24,14 @@ const productSchema = new Schema({
     lastSaleDate: {
         type: Date
     },
+    daysToRunOut: {
+        type: Number
+    },
     lastSaleQuantity: {
         type: Number
+    },
+    status: {
+        type: String
     }
 }, {
     timestamps: true
@@ -34,6 +40,8 @@ const productSchema = new Schema({
 productSchema.pre("save", async function (next) {
     this.lastSaleDate = new Date();
     this.lastSaleQuantity = this.quantity;
+    this.daysToRunOut = 0;
+    this.status = "...";
     next();
 });
 
