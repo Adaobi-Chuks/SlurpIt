@@ -33,17 +33,17 @@ const MESSAGES = {
     USER: {
         DUPLICATE_EMAIL: "Email already exist.",
         CREATED: "User created successfully.",
+        NOT_ID: "User ID is not a valid ID.",
+        UPDATED: "User updated successfully.",
+        FETCHED: "User fetched successfully",
+        FETCHEDALL: "All available users fetched successfully",
+        INVALID_ID: "User ID does not exist.",
+        LOGGEDOUT: "Successfully logged out",
+        INVALID_PASSWORD: "Incorrect password.",
+        LOGGEDIN: "Successfully logged in",
         // DUPLICATE_USERNAME: "UserName already exist.",
         // INVALID_USERNAME: "UserName does not exist.",
-        // INVALID_PASSWORD: "Incorrect password.",
-        // INVALID_ID: "User ID does not exist.",
-        // NOT_ID: "User ID is not a valid ID.",
-        // UPDATED: "User updated successfully.",
-        // FETCHED: "User fetched successfully",
-        // FETCHEDALL: "All available users fetched successfully",
         // DELETED: "User deleted successfully",
-        // LOGGEDIN: "Successfully logged in",
-        // LOGGEDOUT: "Successfully logged out"
     },
 };
 
