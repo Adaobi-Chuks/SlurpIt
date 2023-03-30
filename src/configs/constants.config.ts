@@ -9,7 +9,8 @@ const ENUM = {
 };
 const DATABASES = {
     EMPLOYEE: "employee",
-    USER: "user"
+    USER: "user",
+    CATEGORY: "category"
 };
 const MESSAGES = {
     DATABASE: {
@@ -41,6 +42,21 @@ const MESSAGES = {
         LOGGEDOUT: "Successfully logged out",
         INVALID_PASSWORD: "Incorrect password.",
         LOGGEDIN: "Successfully logged in",
+        // DUPLICATE_USERNAME: "UserName already exist.",
+        // INVALID_USERNAME: "UserName does not exist.",
+        // DELETED: "User deleted successfully",
+    },
+    CATEGORY: {
+        DUPLICATE_NAME: "Name already exist.",
+        CREATED: "Category created successfully.",
+        // NOT_ID: "User ID is not a valid ID.",
+        // UPDATED: "User updated successfully.",
+        // FETCHED: "User fetched successfully",
+        // FETCHEDALL: "All available users fetched successfully",
+        // INVALID_ID: "User ID does not exist.",
+        // LOGGEDOUT: "Successfully logged out",
+        // INVALID_PASSWORD: "Incorrect password.",
+        // LOGGEDIN: "Successfully logged in",
         // DUPLICATE_USERNAME: "UserName already exist.",
         // INVALID_USERNAME: "UserName does not exist.",
         // DELETED: "User deleted successfully",
