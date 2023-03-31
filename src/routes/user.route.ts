@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 import UserController from '../controllers/user.controller';
-// import authenticate from "../middlewares/auth/authentication.middleware";
+import authenticate from "../middlewares/auth/authentication.middleware";
 // import authorize from "../middlewares/auth/authorization.middleware";
 // import validate from "../middlewares/validate.middleware";
 // import { createSchema, editSchema, loginSchema } from "../schemas/user.schema";
@@ -18,7 +18,7 @@ router.post("/", createUser);
 //get a user with an id
 router.get("/:userId", getUserById);
 //get users
-router.get("/", getUsers);
+router.get("/", authenticate, getUsers);
 //create a user or signup
 router.post("/login", login);
 //logs out a user

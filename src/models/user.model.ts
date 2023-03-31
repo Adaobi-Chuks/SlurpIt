@@ -37,7 +37,7 @@ userSchema.pre("save", async function (next) {
     }
     const employee = await findById(this.employeeId as string);
     if(employee){
-        if(employee.accessLevel = 5) {
+        if(employee.accessLevel === 5) {
             this.role = ENUM.ADMIN;
         } else {
             this.role = ENUM.USER;
