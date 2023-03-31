@@ -14,8 +14,6 @@ const {
     FETCHEDALL, 
     INVALID_NAME,
     ADDED
-    // FETCHED, 
-    // DELETED, 
 } = MESSAGES.PRODUCT;
 
 export default class ProductController {

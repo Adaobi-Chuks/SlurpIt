@@ -10,11 +10,7 @@ const {
     createUser,
     findById,
     getAllUsers,
-    findByIdP,
-    // findByUserName,
-    // findByUserNameWithP,
-    // editById,
-    // deleteById
+    findByIdP
 } = new UserService();
 const {
     DUPLICATE_EMAIL,
@@ -25,11 +21,7 @@ const {
     FETCHEDALL,
     LOGGEDOUT,
     INVALID_PASSWORD,
-    LOGGEDIN,
-    // DUPLICATE_USERNAME,
-    // INVALID_USERNAME,
-    // UPDATED,
-    // DELETED,
+    LOGGEDIN
 } = MESSAGES.USER;
 
 export default class UserController {
