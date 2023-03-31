@@ -77,6 +77,11 @@ const MESSAGES = {
         // INVALID_USERNAME: "UserName does not exist.",
         // DELETED: "User deleted successfully",
     },
+    AUTH: {
+        TOKENERROR: 'Access Denied: Token not provided',
+        INVALIDTOKEN: 'Access Denied: Invalid token',
+        DENIED: 'Access Denied: Unauthorized request'
+    },
 };
 
 export {

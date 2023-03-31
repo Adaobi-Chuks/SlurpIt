@@ -1,6 +1,7 @@
 import { Router } from "express";
 const router = Router();
 import ProductController from '../controllers/product.controller';
+import authenticate from "../middlewares/auth/authentication.middleware";
 // import validate from "../middlewares/validate.middleware";
 // import { createSchema } from "../schemas/employee.schema";
 const {
@@ -11,12 +12,12 @@ const {
 } = new ProductController();
 
 //create an product
-router.post("/", createProduct);
+router.post("/", authenticate, createProduct);
 //get products
-router.get("/", getProducts);
+router.get("/", authenticate, getProducts);
 //add products
-router.put("/add", addProduct);
+router.put("/add", authenticate, addProduct);
 //checkout products
-router.put("/checkout", checkoutProduct);
+router.put("/checkout", authenticate, checkoutProduct);
 
 export default router;
