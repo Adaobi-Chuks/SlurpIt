@@ -7,10 +7,7 @@ const {
 } = new CategoryService();
 const {
     DUPLICATE_NAME,
-    CREATED, 
-    // FETCHED, 
-    // DELETED, 
-    // INVALID_ID_ERROR
+    CREATED
 } = MESSAGES.CATEGORY;
 
 export default class CategoryController {
