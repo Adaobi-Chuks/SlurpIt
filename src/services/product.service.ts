@@ -18,4 +18,12 @@ export default class ProductService {
         //sorts in descending order based on the date created
         return await Product.find(filter, "-__v").sort({ createdAt: 'desc' });
     }
+
+    async editById(name: string, obj: Partial<IProduct>) {
+        if(await Product.findOne({ name: name, isDeleted: false })){
+            const filter = { name: name, isDeleted: false };
+            return await Product.findOneAndUpdate(filter, { $set: obj }, { new: true });
+        }
+    }
+
 }
