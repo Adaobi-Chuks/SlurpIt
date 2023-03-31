@@ -3,5 +3,7 @@ export default interface IProduct {
     quantity: Number,
     category: string,
     lastSaleDate: Date,
-    lastSaleQuantity: Number
+    lastSaleQuantity: Number,
+    daysToRunOut: Number,
+    status: string
 }
