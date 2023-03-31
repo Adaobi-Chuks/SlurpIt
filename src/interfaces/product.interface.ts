@@ -5,5 +5,6 @@ export default interface IProduct {
     lastSaleDate: Date,
     lastSaleQuantity: Number,
     daysToRunOut: Number,
+    quantityHistory: number[],
     status: string
 }
