@@ -1,6 +1,7 @@
 import ProductService from "../services/product.service";
 import { Request, Response } from "express";
 import {MESSAGES} from "../configs/constants.config"
+import getStatus from "../utils/getStatus";
 const {
     addProduct,
     getProduct,
@@ -64,12 +65,27 @@ export default class ProductController {
                     success: false
                 });
         }
+        //updates the quantity
         const _quantity= quantity + existingProduct.quantity;
+
         const date = new Date();
+        //adds the quantity to the array for storing history
+        const _quantityHistory: number[] = existingProduct.quantityHistory;
+        _quantityHistory.push(quantity);
+
+        //finds the mean of stock to check when it'll likely run out
+        const sum = _quantityHistory.reduce((acc, curr) => acc + curr, 0);
+        const mean = Math.round(sum / 50);
+        
+        //gets the status
+        const _status = getStatus(_quantity);
         const editedData = await editById(name, {
             quantity: _quantity,
             lastSaleDate: date,
             lastSaleQuantity: quantity,
+            quantityHistory: _quantityHistory,
+            daysToRunOut: mean,
+            status: _status
         });
         return res.status(200)
             .send({
@@ -92,18 +108,31 @@ export default class ProductController {
                     success: false
                 });
         }
+
+        //updates the quantity
         let _quantity;
-        if (existingProduct.quantity) {
-            _quantity= existingProduct.quantity - quantity;
-        } else {
-            _quantity= quantity;
-        }
+        _quantity= existingProduct.quantity! - quantity;
         const date = new Date();
-        const editedData = editById(name, {
+
+        //adds the negative value of quantity to the array for storing history
+        const _quantityHistory: number[] = existingProduct.quantityHistory;
+        _quantityHistory.push(quantity * -1);
+
+        //gets the status
+        const _status = getStatus(_quantity);
+
+        //finds the mean of stock to check when it'll likely run out
+        const sum = _quantityHistory.reduce((acc, curr) => acc + curr, 0);
+        const mean = Math.round(sum / 50);
+        const editedData = await editById(name, {
             quantity: _quantity,
             lastSaleDate: date,
             lastSaleQuantity: quantity,
-        })
+            quantityHistory: _quantityHistory,
+            daysToRunOut: mean,
+            status: _status
+        });
+
         return res.status(200)
             .send({
                 message: ADDED,
