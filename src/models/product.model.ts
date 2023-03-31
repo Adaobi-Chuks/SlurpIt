@@ -1,5 +1,6 @@
 import { model, Schema } from 'mongoose';
 import {DATABASES} from "../configs/constants.config";
+import getStatus from '../utils/getStatus';
 
 const productSchema = new Schema({
     name: {
@@ -32,7 +33,8 @@ const productSchema = new Schema({
     },
     status: {
         type: String
-    }
+    },
+    quantityHistory: [Number],
 }, {
     timestamps: true
 });
@@ -40,8 +42,9 @@ const productSchema = new Schema({
 productSchema.pre("save", async function (next) {
     this.lastSaleDate = new Date();
     this.lastSaleQuantity = this.quantity;
-    this.daysToRunOut = 0;
-    this.status = "...";
+    this.quantityHistory.push(this.quantity!);
+    this.daysToRunOut = Math.round(this.quantity! / 50);
+    this.status = getStatus(this.quantity!);
     next();
 });
 
