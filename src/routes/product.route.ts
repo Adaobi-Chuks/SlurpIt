@@ -12,12 +12,12 @@ const {
 } = new ProductController();
 
 //create an product
-router.post("/", authenticate, createProduct);
+router.post("/", createProduct);
 //get products
-router.get("/", authenticate, getProducts);
+router.get("/", getProducts);
 //add products
-router.put("/add", authenticate, addProduct);
+router.put("/add", addProduct);
 //checkout products
-router.put("/checkout", authenticate, checkoutProduct);
+router.put("/checkout", checkoutProduct);
 
 export default router;
