@@ -1,4 +1,3 @@
-import ICategory from "../interfaces/category.interface";
 import Category from "../models/category.model";
 
 export default class CategoryService {
